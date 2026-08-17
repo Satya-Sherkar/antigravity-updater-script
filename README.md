@@ -1,5 +1,9 @@
 # Antigravity IDE Installer / Updater Guide
 
+![Shell](https://img.shields.io/badge/shell-bash-89e051)
+![Platform](https://img.shields.io/badge/platform-Ubuntu%20%7C%20Debian-orange)
+![License](https://img.shields.io/badge/license-MIT-blue)
+
 ## 1. Save and make executable
 
 ```bash
@@ -136,8 +140,8 @@ documented in [`bug-fix-ledger.md`](./bug-fix-ledger.md). Key fixes include:
 
 ## 11. Repository files
 
-| File | Description |
-|------|-------------|
-| [`install-antigravity-ide.sh`](./install-antigravity-ide.sh) | Main installer / updater script |
-| [`bug-fix-ledger.md`](./bug-fix-ledger.md) | History of bugs found and fixed (BUG-001 → BUG-015) |
-| [`README.md`](./README.md) | This guide |
+| File                                                         | Description                                         |
+| ------------------------------------------------------------ | --------------------------------------------------- |
+| [`install-antigravity-ide.sh`](./install-antigravity-ide.sh) | Main installer / updater script                     |
+| [`bug-fix-ledger.md`](./bug-fix-ledger.md)                   | History of bugs found and fixed (BUG-001 → BUG-015) |
+| [`README.md`](./README.md)                                   | This guide                                          |
