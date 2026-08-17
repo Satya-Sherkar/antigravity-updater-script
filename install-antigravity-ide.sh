@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-# Antigravity IDE Clean Installer / Updater
-# Usage:
-#   ./install-antigravity-ide.sh
-#   ./install-antigravity-ide.sh --purge-data
-#   ./install-antigravity-ide.sh --url "https://official-url/file.tar.gz"
-#   ./install-antigravity-ide.sh --purge-data --url "https://official-url/file.tar.gz"
 
 set -Eeuo pipefail
 
@@ -25,37 +19,6 @@ RELEASE_PAGE="https://antigravity.google/releases?platform=linux"
 PURGE_DATA=false
 DOWNLOAD_URL=""
 
-# BUG FIX LEDGER
-# BUG-001: pkill -f "Antigravity IDE" could kill this installer.
-#          Fixed by matching only known Antigravity installation paths.
-# BUG-002: arbitrary icon/logo search selected extension icons.
-#          Fixed by using the bundled Antigravity SVG explicitly.
-# BUG-003: chrome-sandbox lacked root ownership/SUID 4755.
-#          Fixed with chown root:root + chmod 4755 and verification.
-# BUG-004: chmod -R a+rX does not set the SUID sandbox bit.
-#          Fixed by explicit sandbox configuration.
-# BUG-005: archive extraction could create an unexpected nested directory.
-#          Fixed by detecting the application root and copying its contents.
-# BUG-006: desktop launcher could point to a guessed/stale executable/icon.
-#          Fixed by resolving the installed executable and standard icon path.
-# BUG-007: purge mode and normal update behavior were mixed.
-#          Fixed by keeping user-data deletion behind --purge-data.
-# BUG-008: failed installs could leave temporary files.
-#          Fixed with cleanup/error traps.
-# BUG-009: ~/.local/bin may not be in PATH.
-#          Fixed by detecting it and updating bash/zsh rc when possible.
-# BUG-010: stale desktop/icon caches.
-#          Fixed by refreshing caches when tools are available.
-# BUG-011: invalid downloads could reach extraction.
-#          Fixed with URL, non-empty file and tar integrity validation.
-# BUG-012: cp could create an unwanted nested application directory.
-#          Fixed by copying "$APP_SOURCE"/. into the destination.
-# BUG-013: running IDE processes could interfere with replacement.
-#          Fixed with safe graceful/force termination by known path.
-# BUG-014: replacing the live app before validation could break the install.
-#          Fixed by extracting and staging before replacement.
-# BUG-015: failed replacement could lose the old installation.
-#          Fixed with a temporary backup until final verification succeeds.
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'

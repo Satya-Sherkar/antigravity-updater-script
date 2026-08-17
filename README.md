@@ -36,7 +36,17 @@ Or:
 ./install-antigravity-ide.sh --purge-data --url "YOUR_OFFICIAL_TARBALL_URL"
 ```
 
-## 5. Start Antigravity
+## 5. Show help
+
+```bash
+./install-antigravity-ide.sh --help
+# or
+./install-antigravity-ide.sh -h
+```
+
+Prints a full usage reference and exits without making any changes.
+
+## 6. Start Antigravity
 
 ```bash
 antigravity-ide
@@ -44,7 +54,7 @@ antigravity-ide
 
 If the command is not found immediately after installation, open a new terminal.
 
-## 6. Verify the sandbox
+## 7. Verify the sandbox
 
 ```bash
 stat -c '%U:%G %a' /opt/antigravity-ide/chrome-sandbox
@@ -56,7 +66,7 @@ Expected:
 root:root 4755
 ```
 
-## 7. Verify the icon
+## 8. Verify the icon
 
 The script uses the bundled Antigravity SVG:
 
@@ -85,7 +95,7 @@ update-desktop-database ~/.local/share/applications 2>/dev/null || true
 
 If necessary, log out and back in.
 
-## 8. Important behavior
+## 9. Important behavior
 
 Normal:
 
@@ -107,9 +117,10 @@ Purge:
 - common user data removed
 - settings/cache/extensions may be lost
 
-## 9. Bugs fixed in this version
+## 10. Bugs fixed
 
-The script has a BUG FIX LEDGER at the top documenting the issues found during the previous installation attempts, including:
+The full history of bugs found and fixed during development (BUG-001 → BUG-015) is
+documented in [`bug-fix-ledger.md`](./bug-fix-ledger.md). Key fixes include:
 
 - installer killing itself with `pkill -f`
 - incorrect extension icon being selected
@@ -122,3 +133,11 @@ The script has a BUG FIX LEDGER at the top documenting the issues found during t
 - `~/.local/bin` PATH handling
 - validating before replacing the current application
 - keeping a temporary backup until the new install is verified
+
+## 11. Repository files
+
+| File | Description |
+|------|-------------|
+| [`install-antigravity-ide.sh`](./install-antigravity-ide.sh) | Main installer / updater script |
+| [`bug-fix-ledger.md`](./bug-fix-ledger.md) | History of bugs found and fixed (BUG-001 → BUG-015) |
+| [`README.md`](./README.md) | This guide |
